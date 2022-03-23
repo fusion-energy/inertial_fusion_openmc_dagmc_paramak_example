@@ -14,10 +14,8 @@ cd cad-to-dagmc-to-openmc-example
 
 Make an environment for the model preparation
 ```
-conda create --name paramak_env python=3.9
-conda activate paramak_env
-conda install -c fusion-energy -c cadquery -c conda-forge paramak
-pip install jupyter_cadquery
+conda env create -f environment_cad.yml
+conda activate env_cad
 ```
 
 Then run the script for making the DAGMC model.
@@ -44,10 +42,8 @@ paraview dagmc.vtk
 First make an environment for simulation.
 
 ```
-conda create --name openmc_dagmc_env python=3.9
-conda activate openmc_dagmc_env
-conda install -c conda-forge openmc
-pip install openmc_mesh_tally_to_vtk
+conda env create -f environment_neutronics.yml
+conda activate env_neutronics
 ```
 
 Then run the simulation which will produce a statepoint.10.h5 file that contains the simulation outputs

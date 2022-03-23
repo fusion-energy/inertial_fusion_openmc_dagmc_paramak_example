@@ -1,30 +1,31 @@
 import openmc
+import openmc_data_downloader as odd
+
 
 # Names of material tags can be found with the command line tool
 # mbsize -ll dagmc.h5m | grep 'NAME = mat:'
 
-
-mat_vacuum_vessel = openmc.Material(name="mat_vacuum_vessel")
+mat_vacuum_vessel = openmc.Material(name="vacuum_vessel")
 mat_vacuum_vessel.add_element("Fe", 1, "ao")
 mat_vacuum_vessel.set_density("g/cm3", 7.7)
 
-mat_upper_blanket = openmc.Material(name="mat_upper_blanket")
+mat_upper_blanket = openmc.Material(name="upper_blanket")
 mat_upper_blanket.add_element("Li", 1, "ao")
 mat_upper_blanket.set_density("g/cm3", 0.5)
 
-mat_lower_blanket = openmc.Material(name="mat_lower_blanket")
+mat_lower_blanket = openmc.Material(name="lower_blanket")
 mat_lower_blanket.add_element("Li", 1, "ao")
 mat_lower_blanket.set_density("g/cm3", 0.5)
 
-mat_lower_vacuum_vessel = openmc.Material(name="mat_lower_vacuum_vessel")
+mat_lower_vacuum_vessel = openmc.Material(name="lower_vacuum_vessel")
 mat_lower_vacuum_vessel.add_element("Fe", 1, "ao")
 mat_lower_vacuum_vessel.set_density("g/cm3", 7.7)
 
-mat_upper_vacuum_vessel = openmc.Material(name="mat_upper_vacuum_vessel")
+mat_upper_vacuum_vessel = openmc.Material(name="upper_vacuum_vessel")
 mat_upper_vacuum_vessel.add_element("Fe", 1, "ao")
 mat_upper_vacuum_vessel.set_density("g/cm3", 7.7)
 
-mat_blanket = openmc.Material(name="mat_blanket")
+mat_blanket = openmc.Material(name="blanket")
 mat_blanket.add_element("Li", 1, "ao")
 mat_blanket.set_density("g/cm3", 0.5)
 
@@ -37,6 +38,12 @@ materials = openmc.Materials(
         mat_upper_vacuum_vessel,
         mat_blanket,
     ]
+)
+
+#downloads the nuclear data and sets the openmc_cross_sections environmental variable
+odd.just_in_time_library_generator(
+    libraries='ENDFB-7.1-NNDC',
+    materials=materials
 )
 
 # makes use of the dagmc geometry
