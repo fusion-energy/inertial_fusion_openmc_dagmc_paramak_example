@@ -9,3 +9,4 @@ dependencies:
   - pip
   - pip:
     - openmc_data_downloader
+    - openmc_mesh_tally_to_vtk
