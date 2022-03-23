@@ -1,7 +1,7 @@
 
-This example simulates a 180 degree sector model of a fusion reactor with reflecting surfaces. A CAD model is made and automatically converted to a DAGMC geometry that is the used in OpenMC
-
-![Jupyter-cadquery image](https://github.com/Shimwell/fusion_example_for_openmc_using_paramak/blob/main/reactor.png?raw=true)
+This example simulates a simplfied model of an inertial confinement fusion reactor.
+A CAD model is made and automatically converted to a DAGMC geometry that is then used in OpenMC for a neutronics simulation.
+The neutronics simulation obtains the tritium breeding ratio and a 3D map of tritium production
 
 
 Making the DAGMC model.
@@ -19,11 +19,18 @@ Then run the script for making the DAGMC model.
 python 1_creation_of_dagmc_geometry.py
 ```
 
+Then open the ```dagmc.html``` file in an internet browser to view the CAD created
+
+-![CAD geometry image](https://user-images.githubusercontent.com/8583900/159698975-d82544c7-635b-4117-b4bc-4d61a8cf9ecc.png)
+
+
 Optionally you can inspect the DAGMC file at this stage by converting the h5m file to a vtk file and opening this with [Paraview](https://www.paraview.org/)
 ```
 mbconvert dagmc.h5m dagmc.vtk
 paraview dagmc.vtk
 ```
+-![DAGMC model image](https://user-images.githubusercontent.com/8583900/159698979-3665e14b-ca42-4df2-8a1e-deee6597efc0.png)
+
 
 
 Simulating the model in OpenMC.
@@ -51,3 +58,4 @@ Open up the VTK file with paraview
 ```bash
 paraview tritium_production_map.vtk
 ```
+-![Mesh Tally result](https://user-images.githubusercontent.com/8583900/159698986-5e325860-dbd9-4b17-aba7-6043675ba2d3.png)
