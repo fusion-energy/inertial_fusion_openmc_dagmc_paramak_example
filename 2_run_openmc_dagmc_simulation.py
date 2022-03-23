@@ -69,7 +69,7 @@ my_source.energy = openmc.stats.Discrete([14e6], [1])
 # specifies the simulation computational intensity
 settings = openmc.Settings()
 settings.batches = 10
-settings.particles = 100000
+settings.particles = 10000
 settings.inactive = 0
 settings.run_mode = "fixed source"
 settings.source = my_source
