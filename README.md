@@ -1,7 +1,11 @@
 
-This example simulates a 180 degree sector model of a fusion reactor with reflecting surfaces. A CAD model is made and automatically converted to a DAGMC geometry that is the used in OpenMC
+This example simulates a simplfied model of an inertial confinement fusion reactor.
+A CAD model is made and automatically converted to a DAGMC geometry that is then used in OpenMC for a neutronics simulation.
+The neutronics simulation obtains the tritium breeding ratio and a 3D map of tritium production
 
-![Jupyter-cadquery image](https://github.com/Shimwell/fusion_example_for_openmc_using_paramak/blob/main/reactor.png?raw=true)
+-![CAD geometry image](https://github.com/Shimwell/fusion_example_for_openmc_using_paramak/blob/main/reactor.png?raw=true)
+-![DAGMC model image](https://github.com/Shimwell/fusion_example_for_openmc_using_paramak/blob/main/reactor.png?raw=true)
+-![Mesh Tally result](https://github.com/Shimwell/fusion_example_for_openmc_using_paramak/blob/main/reactor.png?raw=true)
 
 
 Making the DAGMC model.
