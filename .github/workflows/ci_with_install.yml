@@ -20,6 +20,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
       
+      - name: conda init
+        run: |
+          conda init bash
+
       - name: install dependencies package
         run: |
           apt update -y
