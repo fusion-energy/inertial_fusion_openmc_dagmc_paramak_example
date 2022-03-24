@@ -20,9 +20,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
       
-      - name: conda init
-        run: |
-          bash -i conda_init_for_ci.sh
 
       - name: install dependencies package
         run: |
@@ -33,6 +30,10 @@ jobs:
         run: |
           conda env create -f environment_cad.yml
           conda activate env_cad
+
+      - name: conda init
+        run: |
+          bash -i conda_init_for_ci.sh
 
       - name: run script 1 of 3
         run: |
