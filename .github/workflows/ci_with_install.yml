@@ -22,7 +22,7 @@ jobs:
       
       - name: conda init
         run: |
-          conda init bash
+          bash -i conda_init_for_ci.sh
 
       - name: install dependencies package
         run: |
