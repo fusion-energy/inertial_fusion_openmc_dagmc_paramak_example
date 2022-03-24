@@ -6,13 +6,27 @@ This example simulates a simplified model of an inertial confinement fusion reac
 - The neutronics simulation obtains the tritium breeding ratio and a 3D map of tritium production.
 - The simulation outputs are post processed to display the results and produce a VTK file for visualization.
 
+# Prerequisites
+
+This minimal example makes use of Conda to manage and install the packages.
+
+You will need one of these conda distributions to be installed or work within a [Docker image](https://hub.docker.com/r/continuumio/miniconda3)
+
+- [Miniconda](https://docs.conda.io/en/latest/miniconda.html)
+
+- [Anaconda](https://www.anaconda.com/)
+
+- [Miniforge](https://github.com/conda-forge/miniforge)
+
+- [Miniconda](https://docs.conda.io/en/latest/miniconda.html)
+
 # First clone the repository
 ```bash
 git clone https://github.com/shimwell/cad-to-dagmc-to-openmc-example.git
 cd cad-to-dagmc-to-openmc-example
 ```
 
-# Making the DAGMC model.
+# Making the DAGMC model
 
 Make an environment for the model preparation
 ```
@@ -29,7 +43,6 @@ Then open the ```dagmc.html``` file in an internet browser to view the CAD creat
 
 ![CAD geometry image](https://user-images.githubusercontent.com/8583900/159698975-d82544c7-635b-4117-b4bc-4d61a8cf9ecc.png)
 
-
 Optionally you can inspect the DAGMC file at this stage by converting the h5m file to a vtk file and opening this with [Paraview](https://www.paraview.org/)
 ```
 mbconvert dagmc.h5m dagmc.vtk
@@ -37,9 +50,7 @@ paraview dagmc.vtk
 ```
 ![DAGMC model image](https://user-images.githubusercontent.com/8583900/159698979-3665e14b-ca42-4df2-8a1e-deee6597efc0.png)
 
-
-
-# Simulating the model in OpenMC.
+# Simulating the model in OpenMC
 
 First make an environment for simulation.
 
@@ -58,7 +69,7 @@ Then run the post processing script that should output the Tritium Breeding Rati
 python 3_extract_results.py
 ```
 
-Open up the VTK file with paraview
+Open up the VTK file with Paraview and slice the data to see the high tritium breeding region
 ```bash
 paraview tritium_production_map.vtk
 ```
