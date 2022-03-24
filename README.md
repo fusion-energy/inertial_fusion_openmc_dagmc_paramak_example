@@ -1,8 +1,24 @@
-This example simulates a simplfied model of an inertial confinement fusion reactor.
+<!-- [![CI with install](https://github.com/shimwell/cad-to-dagmc-to-openmc-example/actions/workflows/ci_with_install.yml/badge.svg)](https://github.com/shimwell/cad-to-dagmc-to-openmc-example/actions/workflows/ci_with_install.yml) -->
+
+This example simulates a simplified model of an inertial confinement fusion reactor.
 
 - A CAD model is made and automatically converted to a DAGMC geometry that is then used in OpenMC for a neutronics simulation.
 - The neutronics simulation obtains the tritium breeding ratio and a 3D map of tritium production.
 - The simulation outputs are post processed to display the results and produce a VTK file for visualization.
+
+# Prerequisites
+
+This minimal example makes use of Conda to manage and install the packages.
+
+You will need one of these conda distributions to be installed or work within a [Docker image](https://hub.docker.com/r/continuumio/miniconda3)
+
+- [Miniconda](https://docs.conda.io/en/latest/miniconda.html)
+
+- [Anaconda](https://www.anaconda.com/)
+
+- [Miniforge](https://github.com/conda-forge/miniforge)
+
+- [Miniconda](https://docs.conda.io/en/latest/miniconda.html)
 
 # First clone the repository
 ```bash
@@ -10,14 +26,12 @@ git clone https://github.com/shimwell/cad-to-dagmc-to-openmc-example.git
 cd cad-to-dagmc-to-openmc-example
 ```
 
-# Making the DAGMC model.
+# Making the DAGMC model
 
 Make an environment for the model preparation
 ```
-conda create --name paramak_env python=3.9
-conda activate paramak_env
-conda install -c fusion-energy -c cadquery -c conda-forge paramak
-pip install jupyter_cadquery
+conda env create -f environment_cad.yml
+conda activate env_cad
 ```
 
 Then run the script for making the DAGMC model.
@@ -29,7 +43,6 @@ Then open the ```dagmc.html``` file in an internet browser to view the CAD creat
 
 ![CAD geometry image](https://user-images.githubusercontent.com/8583900/159698975-d82544c7-635b-4117-b4bc-4d61a8cf9ecc.png)
 
-
 Optionally you can inspect the DAGMC file at this stage by converting the h5m file to a vtk file and opening this with [Paraview](https://www.paraview.org/)
 ```
 mbconvert dagmc.h5m dagmc.vtk
@@ -37,17 +50,13 @@ paraview dagmc.vtk
 ```
 ![DAGMC model image](https://user-images.githubusercontent.com/8583900/159698979-3665e14b-ca42-4df2-8a1e-deee6597efc0.png)
 
-
-
-# Simulating the model in OpenMC.
+# Simulating the model in OpenMC
 
 First make an environment for simulation.
 
 ```
-conda create --name openmc_dagmc_env python=3.9
-conda activate openmc_dagmc_env
-conda install -c conda-forge openmc
-pip install openmc_mesh_tally_to_vtk
+conda env create -f environment_neutronics.yml
+conda activate env_neutronics
 ```
 
 Then run the simulation which will produce a statepoint.10.h5 file that contains the simulation outputs
@@ -60,7 +69,7 @@ Then run the post processing script that should output the Tritium Breeding Rati
 python 3_extract_results.py
 ```
 
-Open up the VTK file with paraview
+Open up the VTK file with Paraview and slice the data to see the high tritium breeding region
 ```bash
 paraview tritium_production_map.vtk
 ```
