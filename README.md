@@ -1,4 +1,4 @@
-[![CI with install](https://github.com/shimwell/cad-to-dagmc-to-openmc-example/actions/workflows/ci_with_install.yml/badge.svg)](https://github.com/shimwell/cad-to-dagmc-to-openmc-example/actions/workflows/ci_with_install.yml)
+<!-- [![CI with install](https://github.com/shimwell/cad-to-dagmc-to-openmc-example/actions/workflows/ci_with_install.yml/badge.svg)](https://github.com/shimwell/cad-to-dagmc-to-openmc-example/actions/workflows/ci_with_install.yml) -->
 
 This example simulates a simplified model of an inertial confinement fusion reactor.
 
