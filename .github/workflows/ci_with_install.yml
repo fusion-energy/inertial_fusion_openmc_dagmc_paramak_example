@@ -29,7 +29,6 @@ jobs:
       - name: create environment 1
         run: |
           conda env create -f environment_cad.yml
-          conda activate env_cad
 
       - name: conda init
         run: |
@@ -42,7 +41,6 @@ jobs:
       - name: create environment 1
         run: |
           conda env create -f environment_neutronics.yml
-          conda activate env_neutronics
 
       - name: run script 2 of 3
         run: |
