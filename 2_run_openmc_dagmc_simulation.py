@@ -102,4 +102,4 @@ my_model = openmc.Model(
 )
 
 # starts the simulation
-statepoint_file = my_model.run()
+my_model.run()

@@ -6,6 +6,7 @@ This example simulates a simplified model of an inertial confinement fusion reac
 - The neutronics simulation obtains the tritium breeding ratio and a 3D map of tritium production.
 - The simulation outputs are post processed to display the results and produce a VTK file for visualization.
 
+:point_right: :video_camera: [Link to video tutorial for this repository](https://youtu.be/BF0sixtxfwk) :video_camera:
 # Prerequisites
 
 This minimal example makes use of Conda to manage and install the packages.
