@@ -23,8 +23,8 @@ You will need one of these conda distributions to be installed or work within a 
 
 # First clone the repository
 ```bash
-git clone https://github.com/shimwell/cad-to-dagmc-to-openmc-example.git
-cd cad-to-dagmc-to-openmc-example
+git clone https://github.com/fusion-energy/inertial_fusion_openmc_dagmc_paramak_example
+inertial_fusion_openmc_dagmc_paramak_example
 ```
 
 # Making the DAGMC model
