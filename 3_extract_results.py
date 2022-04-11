@@ -12,8 +12,8 @@ sp = openmc.StatePoint("statepoint.10.h5")
 tbr_tally = sp.get_tally(name="TBR")
 
 # print cell tally results
-print(f"The tritium breeding ratio was found, TBR = {tbr_tally.mean}")
-print(f"Standard deviation on the tbr tally is {tbr_tally.std_dev}")
+print(f"The tritium breeding ratio was found, TBR = {tbr_tally.mean.sum()}")
+print(f"Standard deviation on the tbr tally is {tbr_tally.std_dev.sum()}")
 
 # extracts the mesh tally result
 tbr_mesh_tally = sp.get_tally(name="tbr_on_mesh")
