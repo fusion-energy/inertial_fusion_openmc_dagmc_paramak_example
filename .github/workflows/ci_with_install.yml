@@ -26,6 +26,7 @@ jobs:
           apt-get install ffmpeg libsm6 libxext6  -y
 
       - name: create environment 1
+        shell: bash
         run: |
           conda env create -f environment_cad.yml
           conda init bash
@@ -40,7 +41,8 @@ jobs:
         run: |
           python 1_creation_of_dagmc_geometry.py
 
-      - name: create environment 1
+      - name: create environment 2
+        shell: bash
         run: |
           conda env create -f environment_neutronics.yml
           conda init bash
