@@ -32,14 +32,14 @@ jobs:
           conda init bash
           source ~/.bashrc    
           conda activate env_cad
-
-      - name: conda init
-        run: |
-          bash -i conda_init_for_ci.sh
-
-      - name: run script 1 of 3
-        run: |
           python 1_creation_of_dagmc_geometry.py
+
+      # - name: conda init
+      #   run: |
+      #     bash -i conda_init_for_ci.sh
+
+      # - name: run script 1 of 3
+      #   run: |
 
       - name: create environment 2
         shell: bash
