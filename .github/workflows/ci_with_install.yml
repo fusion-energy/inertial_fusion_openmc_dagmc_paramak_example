@@ -20,37 +20,27 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: install dependencies package
+      - name: install cadquery dependencies packages
         run: |
           apt update -y
           apt-get install ffmpeg libsm6 libxext6  -y
 
-      - name: create environment 1
+      - name: create environment 1 create geometry
+        shell: bash
         run: |
           conda env create -f environment_cad.yml
           conda init bash
-          .source ~/.bashrc    
+          source ~/.bashrc    
           conda activate env_cad
-
-      - name: conda init
-        run: |
-          bash -i conda_init_for_ci.sh
-
-      - name: run script 1 of 3
-        run: |
           python 1_creation_of_dagmc_geometry.py
 
-      - name: create environment 1
+      - name: create environment 2 run simulation
+        shell: bash
         run: |
+          source ~/.bashrc    
           conda env create -f environment_neutronics.yml
           conda init bash
-          .source ~/.bashrc   
+          source ~/.bashrc   
           conda activate env_neutronics
-
-      - name: run script 2 of 3
-        run: |
           2_run_openmc_dagmc_simulation.py
-
-      - name: run script 3 of 3
-        run: |
           3_extract_results.py
