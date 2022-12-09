@@ -37,6 +37,7 @@ jobs:
       - name: create environment 2 run simulation
         shell: bash
         run: |
+          source ~/.bashrc    
           conda env create -f environment_neutronics.yml
           conda init bash
           source ~/.bashrc   
